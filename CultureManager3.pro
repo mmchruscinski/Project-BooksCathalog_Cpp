@@ -11,6 +11,9 @@ CONFIG += c++17
 SOURCES += \
     book.cpp \
     books_add.cpp \
+    books_add_aut.cpp \
+    books_add_cat.cpp \
+    books_add_genre.cpp \
     bookswindow.cpp \
     concertswindow.cpp \
     main.cpp \
@@ -21,6 +24,9 @@ SOURCES += \
 HEADERS += \
     book.h \
     books_add.h \
+    books_add_aut.h \
+    books_add_cat.h \
+    books_add_genre.h \
     bookswindow.h \
     concertswindow.h \
     mainwindow.h \
@@ -29,6 +35,9 @@ HEADERS += \
 
 FORMS += \
     books_add.ui \
+    books_add_aut.ui \
+    books_add_cat.ui \
+    books_add_genre.ui \
     bookswindow.ui \
     concertswindow.ui \
     mainwindow.ui \

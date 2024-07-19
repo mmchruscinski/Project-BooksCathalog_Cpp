@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1326</width>
-    <height>832</height>
+    <width>1617</width>
+    <height>930</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>1050</x>
-     <y>410</y>
+     <y>640</y>
      <width>231</width>
      <height>29</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>1050</x>
-     <y>450</y>
+     <y>680</y>
      <width>231</width>
      <height>29</height>
     </rect>
@@ -39,11 +39,11 @@
     <string>Add author</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="add_book_3">
+  <widget class="QPushButton" name="add_genre">
    <property name="geometry">
     <rect>
      <x>1050</x>
-     <y>490</y>
+     <y>720</y>
      <width>231</width>
      <height>29</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>30</y>
+     <x>40</x>
+     <y>0</y>
      <width>321</width>
      <height>51</height>
     </rect>
@@ -68,8 +68,8 @@
   <widget class="QLabel" name="label_isopen">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>30</y>
+     <x>240</x>
+     <y>0</y>
      <width>141</width>
      <height>51</height>
     </rect>
@@ -82,17 +82,17 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>190</y>
      <width>1010</width>
      <height>711</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="add_book_4">
+  <widget class="QPushButton" name="delete_book">
    <property name="geometry">
     <rect>
      <x>1050</x>
-     <y>590</y>
+     <y>820</y>
      <width>231</width>
      <height>29</height>
     </rect>
@@ -101,6 +101,174 @@
     <string>Delete record</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="add_cat">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>760</y>
+     <width>231</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add cathegory</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>531</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>510</y>
+     <width>251</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>190</y>
+     <width>251</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>123</width>
+      <height>88</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Color scheme</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>Read status</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="text">
+        <string>Cathegory</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_3">
+   <property name="geometry">
+    <rect>
+     <x>1310</x>
+     <y>190</y>
+     <width>291</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Books finished:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Books total:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>63</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Finished</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>40</y>
+      <width>63</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Total</string>
+    </property>
+   </widget>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>add_book</zorder>
+  <zorder>add_author</zorder>
+  <zorder>add_genre</zorder>
+  <zorder>label</zorder>
+  <zorder>label_isopen</zorder>
+  <zorder>tableView</zorder>
+  <zorder>delete_book</zorder>
+  <zorder>add_cat</zorder>
+  <zorder>progressBar</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>frame_3</zorder>
  </widget>
  <resources/>
  <connections/>

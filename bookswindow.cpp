@@ -1,6 +1,9 @@
 #include "bookswindow.h"
 #include "ui_bookswindow.h"
 #include "books_add.h"
+#include "books_add_genre.h"
+#include "books_add_cat.h"
+#include "books_add_aut.h"
 
 bookswindow::bookswindow(QWidget *parent)
     : QWidget(parent)
@@ -17,35 +20,7 @@ bookswindow::bookswindow(QWidget *parent)
         ui->label_isopen->setText("DB not found :(");
     }
 
-    QSqlQueryModel *modelBooks = new QSqlQueryModel;
-    modelBooks->setQuery(
-        "SELECT Title, Author, Cathegory, Genre, Date, Read_num, Listen_num\
-        FROM Books INNER JOIN Authors\
-        ON Books.AuthorID = Authors.Id INNER JOIN Genres\
-        ON Books.GenreID = Genres.Id INNER JOIN Cathegories\
-        ON Genres.CathegoryID = Cathegories.Id\
-        ");
-
-    //poniższe w miarę mozliwości do nowe funkcji lub lv hard: dziedziczenie tableview
-    modelBooks->setHeaderData(0, Qt::Horizontal, "Book title");
-    modelBooks->setHeaderData(1, Qt::Horizontal, "Book author");
-    modelBooks->setHeaderData(5, Qt::Horizontal, "Read c.");
-    modelBooks->setHeaderData(6, Qt::Horizontal, "Listen c.");
-    QSortFilterProxyModel* proxymodel = new QSortFilterProxyModel;
-    proxymodel->setSourceModel(modelBooks);
-    ui->tableView->setModel(proxymodel);
-    ui->tableView->setSortingEnabled(true);
-    ui->tableView->setColumnWidth(0, 310);
-    ui->tableView->setColumnWidth(1, 200);
-    ui->tableView->setColumnWidth(2, 120);
-    ui->tableView->setColumnWidth(3, 120);
-    ui->tableView->setColumnWidth(4, 100);
-    ui->tableView->setColumnWidth(5, 55);
-    ui->tableView->setColumnWidth(6, 55);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-
-
-
+    setTable();
 }
 
 bookswindow::~bookswindow()
@@ -67,5 +42,63 @@ void bookswindow::closeEvent(QCloseEvent* event)
     mydb.close();
     QSqlDatabase::removeDatabase("qt_sql_default_connection");
     qDebug() << "window closed";
+}
+
+
+void bookswindow::on_add_genre_clicked()
+{
+    books_add_genre* booksAddGenre = new books_add_genre();
+    booksAddGenre->show();
+}
+
+
+void bookswindow::on_add_cat_clicked()
+{
+    books_add_cat* booksAddCat = new books_add_cat();
+    booksAddCat->show();
+}
+
+void bookswindow::setTable() {
+
+    QSqlQueryModel *modelBooks = new QSqlQueryModel;
+    modelBooks->setQuery(
+        "SELECT Title, Author, Cathegory, Genre, Date, Read_num, Listen_num\
+        FROM Books INNER JOIN Authors\
+        ON Books.AuthorID = Authors.Id INNER JOIN Genres\
+        ON Books.GenreID = Genres.Id INNER JOIN Cathegories\
+        ON Genres.CathegoryID = Cathegories.Id"
+    );
+
+    modelBooks->setHeaderData(0, Qt::Horizontal, "Book title");
+    modelBooks->setHeaderData(1, Qt::Horizontal, "Book author");
+    modelBooks->setHeaderData(5, Qt::Horizontal, "Read c.");
+    modelBooks->setHeaderData(6, Qt::Horizontal, "Listen c.");
+    QSortFilterProxyModel* proxymodel = new QSortFilterProxyModel;
+    proxymodel->setSourceModel(modelBooks);
+    ui->tableView->setModel(proxymodel);
+    ui->tableView->setSortingEnabled(true);
+    ui->tableView->setColumnWidth(0, 310);
+    ui->tableView->setColumnWidth(1, 200);
+    ui->tableView->setColumnWidth(2, 120);
+    ui->tableView->setColumnWidth(3, 120);
+    ui->tableView->setColumnWidth(4, 100);
+    ui->tableView->setColumnWidth(5, 55);
+    ui->tableView->setColumnWidth(6, 55);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+}
+
+void bookswindow::on_add_author_clicked()
+{
+    books_add_aut* booksAddAut = new books_add_aut;
+    booksAddAut->show();
+}
+
+void bookswindow::setStats() {
+
+    int total,
+        finished,
+        read,
+        listened,
+        doubled;
 }
 

@@ -15,8 +15,8 @@ books_add::books_add(QWidget *parent)
     QSqlQueryModel* modelCats  = new QSqlQueryModel();
     modelCats->setQuery(
         "SELECT Cathegory\
-        FROM Cathegories\
-        ");
+        FROM Cathegories"
+    );
 
     for (int i=0; i<modelCats->rowCount(); i++) {
         QString cat = modelCats->data(modelCats->index(i, 0)).toString();
@@ -46,7 +46,6 @@ void books_add::on_buttonBox_accepted()
     currentBook.print();
 
     currentBook.add2base();
-
 }
 
 
@@ -60,7 +59,7 @@ void books_add::on_combo_cat_currentTextChanged(const QString &arg1)
         ON Genres.CathegoryID = Cathegories.Id\
         WHERE Cathegories.Cathegory = '"
         + arg1 + "'"
-        );
+    );
 
     for (int i=0; i<modelGen->rowCount(); i++) {
         QString gen = modelGen->data(modelGen->index(i, 0)).toString();

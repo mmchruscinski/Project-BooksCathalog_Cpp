@@ -25,9 +25,18 @@ public:
 private slots:
     void on_add_book_clicked();
 
+    void on_add_genre_clicked();
+
+    void on_add_cat_clicked();
+
+    void on_add_author_clicked();
+
 private:
     Ui::bookswindow *ui;
     QSqlDatabase mydb;
+
+    void setTable();
+    void setStats();
 };
 
 #endif // BOOKSWINDOW_H
