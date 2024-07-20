@@ -105,6 +105,7 @@ void bookswindow::on_delete_book_clicked()
 {
     Book virtualBook;
     virtualBook.del(selectedTitle);
+    setTable();
 }
 
 void bookswindow::on_tableView_clicked(const QModelIndex &index)
@@ -115,4 +116,3 @@ void bookswindow::on_tableView_clicked(const QModelIndex &index)
     qDebug() << title;
     selectedTitle = title;
 }
-

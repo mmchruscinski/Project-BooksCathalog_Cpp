@@ -42,9 +42,7 @@ void books_add::on_buttonBox_accepted()
     int list        = ui->combo_listen->currentText().toInt();
 
     Book currentBook(name, author, genre, date, read, list);
-
     currentBook.print();
-
     currentBook.add2base();
 }
 
@@ -68,4 +66,3 @@ void books_add::on_combo_cat_currentTextChanged(const QString &arg1)
 
     delete modelGen;
 }
-

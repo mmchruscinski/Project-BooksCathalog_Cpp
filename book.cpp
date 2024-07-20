@@ -4,9 +4,7 @@ Book::Book(QString name, QString author, QString genre, QString date, int read, 
     _name(name), _author(author), _genre(genre), _date(date), _read(read), _list(list) {
 }
 
-Book::Book() {
-
-}
+Book::Book() {}
 
 void Book::add2base()
 {
@@ -43,7 +41,6 @@ void Book::add2base()
                     WHERE Author = '" + _author + "'"
                     );
                 addAuth.finish();
-
             } else {
                 qDebug() << "Error: " << addAuth.lastError().text();
             }
@@ -92,7 +89,7 @@ void Book::print() {
 void Book::del(const QString title)
 {
     QMessageBox dialog;
-    dialog.setText("Delete the record " + title + "?");
+    dialog.setText("Delete the record '" + title + "'?");
     dialog.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     dialog.setDefaultButton(QMessageBox::Yes);
     int res = dialog.exec();
