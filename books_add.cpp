@@ -38,8 +38,8 @@ void books_add::on_buttonBox_accepted()
     QString author  = ui->text_author->text();
     QString date    = ui->text_date->text();
     QString genre   = ui->combo_genre->currentText();
-    int read            = ui->combo_read->currentText().toInt();
-    int list            = ui->combo_listen->currentText().toInt();
+    int read        = ui->combo_read->currentText().toInt();
+    int list        = ui->combo_listen->currentText().toInt();
 
     Book currentBook(name, author, genre, date, read, list);
 

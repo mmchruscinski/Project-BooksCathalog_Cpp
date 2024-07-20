@@ -4,6 +4,10 @@ Book::Book(QString name, QString author, QString genre, QString date, int read, 
     _name(name), _author(author), _genre(genre), _date(date), _read(read), _list(list) {
 }
 
+Book::Book() {
+
+}
+
 void Book::add2base() {
     QString authorId, genreId;
 
@@ -84,4 +88,24 @@ void Book::print() {
     qDebug() << _list;
     qDebug() << _read;
 }
+
+void Book::del(const int row) {
+    QSqlQuery del;
+    del.prepare(
+        "DELETE\
+        FROM Books\
+        WHERE Id = :ID"
+        );
+    del.bindValue(":ID", row);
+    del.finish();
+
+    if (del.exec()) {
+        qDebug() << "Record deleted successfully";
+    } else {
+        qDebug() << "Error: " << del.lastError().text();
+    }
+
+    qDebug() << row;
+}
+
 
