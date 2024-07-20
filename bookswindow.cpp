@@ -21,10 +21,7 @@ bookswindow::bookswindow(QWidget *parent)
         ui->label_isopen->setText("DB not found :(");
     }
 
-    //QSqlQueryModel *modelBooks = new QSqlQueryModel;
     setTable();
-    Book selectedBook;
-    selectedBook.print();
 }
 
 bookswindow::~bookswindow()
@@ -71,7 +68,6 @@ void bookswindow::setTable()
         ON Books.GenreID = Genres.Id INNER JOIN Cathegories\
         ON Genres.CathegoryID = Cathegories.Id"
     );
-
     modelBooks->setHeaderData(0, Qt::Horizontal, "Book title");
     modelBooks->setHeaderData(1, Qt::Horizontal, "Book author");
     modelBooks->setHeaderData(5, Qt::Horizontal, "Read c.");
@@ -108,13 +104,15 @@ void bookswindow::setStats()
 void bookswindow::on_delete_book_clicked()
 {
     Book virtualBook;
-    virtualBook.del(selectedRow);
+    virtualBook.del(selectedTitle);
 }
 
 void bookswindow::on_tableView_clicked(const QModelIndex &index)
 {
-    QModelIndex sortedIndex = index;
+    QModelIndex sortedIndex = proxymodel->index(index.row(), 0);
     QModelIndex sourceIndex = proxymodel->mapToSource(sortedIndex);
-    qDebug() << sourceIndex.data();
+    QString title = sourceIndex.data().toString();
+    qDebug() << title;
+    selectedTitle = title;
 }
 

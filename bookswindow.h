@@ -42,6 +42,7 @@ private:
     QSqlDatabase mydb;
     QSqlQueryModel *modelBooks = new QSqlQueryModel;
     QSortFilterProxyModel* proxymodel = new QSortFilterProxyModel;
+    QString selectedTitle;
 
     void setTable();
     void setStats();

@@ -27,7 +27,7 @@ public:
 
     void add2base();
     void print();
-    void del(const int row);
+    void del(const QString title);
 };
 
 #endif // BOOK_H
