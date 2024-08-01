@@ -93,11 +93,11 @@ void bookswindow::on_add_author_clicked()
 
 void bookswindow::setStats()
 {
-    int total,
-        finished,
-        read,
-        listened,
-        doubled;
+    //int total,
+    //    finished,
+    //    read,
+    //    listened,
+    //    doubled;
 }
 
 
