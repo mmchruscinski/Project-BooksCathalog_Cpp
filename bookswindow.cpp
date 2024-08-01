@@ -64,6 +64,7 @@ void bookswindow::on_add_cat_clicked()
 
 void bookswindow::setTable()
 {
+    qDebug() << "Set table";
     modelBooks->setQuery(
         "SELECT Title, Author, Cathegory, Genre, Date, Read_num, Listen_num\
         FROM Books INNER JOIN Authors\
@@ -124,4 +125,5 @@ void bookswindow::updateWindow()
 {
     const QString mess = "Hello signal!";
     QMessageBox::information(this, mess, mess);
+    setTable();
 }
