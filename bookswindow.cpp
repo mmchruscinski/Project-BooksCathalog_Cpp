@@ -6,6 +6,8 @@
 #include "books_add_aut.h"
 #include "book.h"
 
+#include <QMessageBox>
+
 bookswindow::bookswindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::bookswindow)
@@ -115,4 +117,11 @@ void bookswindow::on_tableView_clicked(const QModelIndex &index)
     QString title = sourceIndex.data().toString();
     qDebug() << title;
     selectedTitle = title;
+}
+
+void bookswindow::updateWindow()
+{
+    const QString mess = "Hello signal!";
+    QMessageBox::information(this, mess, mess);
+
 }

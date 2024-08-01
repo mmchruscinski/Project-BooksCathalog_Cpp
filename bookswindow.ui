@@ -260,6 +260,19 @@
     </property>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>1462</x>
+     <y>490</y>
+     <width>101</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>UpdateTest</string>
+   </property>
+  </widget>
   <zorder>frame</zorder>
   <zorder>add_book</zorder>
   <zorder>add_author</zorder>
@@ -272,7 +285,28 @@
   <zorder>progressBar</zorder>
   <zorder>pushButton</zorder>
   <zorder>frame_3</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>bookswindow</receiver>
+   <slot>updateWindow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1497</x>
+     <y>516</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1462</x>
+     <y>649</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>updateWindow()</slot>
+ </slots>
 </ui>
