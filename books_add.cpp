@@ -22,7 +22,6 @@ books_add::books_add(QWidget *parent)
         QString cat = modelCats->data(modelCats->index(i, 0)).toString();
         ui->combo_cat->addItem(cat);
     }
-
 }
 
 books_add::~books_add()
@@ -32,19 +31,15 @@ books_add::~books_add()
 
 void books_add::on_buttonBox_accepted()
 {
-    bool returnType;
-
     QString name    = ui->text_name->text();
     QString author  = ui->text_author->text();
     QString date    = ui->text_date->text();
     QString genre   = ui->combo_genre->currentText();
-    int read            = ui->combo_read->currentText().toInt();
-    int list            = ui->combo_listen->currentText().toInt();
+    int read        = ui->combo_read->currentText().toInt();
+    int list        = ui->combo_listen->currentText().toInt();
 
     Book currentBook(name, author, genre, date, read, list);
-
     currentBook.print();
-
     currentBook.add2base();
 }
 
@@ -68,4 +63,3 @@ void books_add::on_combo_cat_currentTextChanged(const QString &arg1)
 
     delete modelGen;
 }
-

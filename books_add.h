@@ -24,6 +24,8 @@ private slots:
 
     void on_combo_cat_currentTextChanged(const QString &arg1);
 
+    void on_books_add_accepted();
+
 private:
     Ui::books_add *ui;
 };

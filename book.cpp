@@ -4,9 +4,11 @@ Book::Book(QString name, QString author, QString genre, QString date, int read, 
     _name(name), _author(author), _genre(genre), _date(date), _read(read), _list(list) {
 }
 
-void Book::add2base() {
-    QString authorId, genreId;
+Book::Book() {}
 
+void Book::add2base()
+{
+    QString authorId, genreId;
     QSqlQueryModel author;
     author.setQuery(
         "SELECT ID\
@@ -39,7 +41,6 @@ void Book::add2base() {
                     WHERE Author = '" + _author + "'"
                     );
                 addAuth.finish();
-
             } else {
                 qDebug() << "Error: " << addAuth.lastError().text();
             }
@@ -84,4 +85,31 @@ void Book::print() {
     qDebug() << _list;
     qDebug() << _read;
 }
+
+void Book::del(const QString title)
+{
+    QMessageBox dialog;
+    dialog.setText("Delete the record '" + title + "'?");
+    dialog.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    dialog.setDefaultButton(QMessageBox::Yes);
+    int res = dialog.exec();
+
+    if (res == QMessageBox::Yes) {
+        QSqlQuery del;
+        del.prepare(
+            "DELETE\
+            FROM Books\
+            WHERE Title = :TITLE"
+            );
+        del.bindValue(":TITLE", title);
+        del.finish();
+
+        if (del.exec()) {
+            qDebug() << "Record deleted successfully";
+        } else {
+            qDebug() << "Error: " << del.lastError().text();
+        }
+    }
+}
+
 

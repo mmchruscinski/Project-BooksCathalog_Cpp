@@ -4,6 +4,7 @@
 #include "books_add_genre.h"
 #include "books_add_cat.h"
 #include "books_add_aut.h"
+#include "book.h"
 
 bookswindow::bookswindow(QWidget *parent)
     : QWidget(parent)
@@ -58,9 +59,8 @@ void bookswindow::on_add_cat_clicked()
     booksAddCat->show();
 }
 
-void bookswindow::setTable() {
-
-    QSqlQueryModel *modelBooks = new QSqlQueryModel;
+void bookswindow::setTable()
+{
     modelBooks->setQuery(
         "SELECT Title, Author, Cathegory, Genre, Date, Read_num, Listen_num\
         FROM Books INNER JOIN Authors\
@@ -68,12 +68,10 @@ void bookswindow::setTable() {
         ON Books.GenreID = Genres.Id INNER JOIN Cathegories\
         ON Genres.CathegoryID = Cathegories.Id"
     );
-
     modelBooks->setHeaderData(0, Qt::Horizontal, "Book title");
     modelBooks->setHeaderData(1, Qt::Horizontal, "Book author");
     modelBooks->setHeaderData(5, Qt::Horizontal, "Read c.");
     modelBooks->setHeaderData(6, Qt::Horizontal, "Listen c.");
-    QSortFilterProxyModel* proxymodel = new QSortFilterProxyModel;
     proxymodel->setSourceModel(modelBooks);
     ui->tableView->setModel(proxymodel);
     ui->tableView->setSortingEnabled(true);
@@ -93,12 +91,28 @@ void bookswindow::on_add_author_clicked()
     booksAddAut->show();
 }
 
-void bookswindow::setStats() {
-
-    int total,
-        finished,
-        read,
-        listened,
-        doubled;
+void bookswindow::setStats()
+{
+    //int total,
+    //    finished,
+    //    read,
+    //    listened,
+    //    doubled;
 }
 
+
+void bookswindow::on_delete_book_clicked()
+{
+    Book virtualBook;
+    virtualBook.del(selectedTitle);
+    setTable();
+}
+
+void bookswindow::on_tableView_clicked(const QModelIndex &index)
+{
+    QModelIndex sortedIndex = proxymodel->index(index.row(), 0);
+    QModelIndex sourceIndex = proxymodel->mapToSource(sortedIndex);
+    QString title = sourceIndex.data().toString();
+    qDebug() << title;
+    selectedTitle = title;
+}

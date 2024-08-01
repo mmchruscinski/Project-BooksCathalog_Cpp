@@ -17,6 +17,7 @@ private:
     int _read;
     int _list;
 public:
+    Book();
     Book(QString name,
         QString author,
         QString genre,
@@ -26,6 +27,7 @@ public:
 
     void add2base();
     void print();
+    void del(const QString title);
 };
 
 #endif // BOOK_H
