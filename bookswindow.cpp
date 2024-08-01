@@ -34,6 +34,7 @@ bookswindow::~bookswindow()
 void bookswindow::on_add_book_clicked()
 {
     books_add* booksAdd = new books_add();
+    connect(booksAdd, &books_add::accepted, this, &bookswindow::updateWindow);
     booksAdd->show();
 }
 
@@ -123,5 +124,4 @@ void bookswindow::updateWindow()
 {
     const QString mess = "Hello signal!";
     QMessageBox::information(this, mess, mess);
-
 }

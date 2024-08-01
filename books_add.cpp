@@ -22,6 +22,8 @@ books_add::books_add(QWidget *parent)
         QString cat = modelCats->data(modelCats->index(i, 0)).toString();
         ui->combo_cat->addItem(cat);
     }
+
+    //connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &bookswindow::updateWindow);
 }
 
 books_add::~books_add()

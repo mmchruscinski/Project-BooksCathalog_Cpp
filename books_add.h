@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QDebug>
-#include <string>
 #include <QSqlQueryModel>
 #include "book.h"
 
