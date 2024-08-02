@@ -1,10 +1,10 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 #include <QtSql>
 #include <QtDebug>
-#include <iostream>
 #include <QFileInfo>
 
 QT_BEGIN_NAMESPACE

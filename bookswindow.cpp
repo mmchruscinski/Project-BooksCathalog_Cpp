@@ -6,6 +6,8 @@
 #include "books_add_aut.h"
 #include "book.h"
 
+#include <QMessageBox>
+
 bookswindow::bookswindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::bookswindow)
@@ -32,6 +34,7 @@ bookswindow::~bookswindow()
 void bookswindow::on_add_book_clicked()
 {
     books_add* booksAdd = new books_add();
+    connect(booksAdd, &books_add::acceptSignal, this, &bookswindow::updateWindow);
     booksAdd->show();
 }
 
@@ -61,6 +64,7 @@ void bookswindow::on_add_cat_clicked()
 
 void bookswindow::setTable()
 {
+    qDebug() << "Set table";
     modelBooks->setQuery(
         "SELECT Title, Author, Cathegory, Genre, Date, Read_num, Listen_num\
         FROM Books INNER JOIN Authors\
@@ -115,4 +119,11 @@ void bookswindow::on_tableView_clicked(const QModelIndex &index)
     QString title = sourceIndex.data().toString();
     qDebug() << title;
     selectedTitle = title;
+}
+
+void bookswindow::updateWindow()
+{
+    const QString mess = "Hello signal!";
+    QMessageBox::information(this, mess, mess);
+    setTable();
 }

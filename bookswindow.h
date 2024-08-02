@@ -24,6 +24,9 @@ public:
     ~bookswindow();
     void closeEvent(QCloseEvent* event);
 
+public slots:
+    void updateWindow();
+
 private slots:
     void on_add_book_clicked();
 

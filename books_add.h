@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QDebug>
-#include <string>
 #include <QSqlQueryModel>
 #include "book.h"
 
@@ -28,6 +27,9 @@ private slots:
 
 private:
     Ui::books_add *ui;
+
+signals:
+    void acceptSignal();
 };
 
 #endif // BOOKS_ADD_H
