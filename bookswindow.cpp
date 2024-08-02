@@ -87,6 +87,7 @@ void bookswindow::setTable()
     ui->tableView->setColumnWidth(5, 55);
     ui->tableView->setColumnWidth(6, 55);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    setStats();
 }
 
 void bookswindow::on_add_author_clicked()
@@ -97,11 +98,15 @@ void bookswindow::on_add_author_clicked()
 
 void bookswindow::setStats()
 {
-    //int total,
-    //    finished,
-    //    read,
-    //    listened,
-    //    doubled;
+    int total,
+        finished,
+        read,
+        listened,
+        doubled;
+    QSqlQuery qtotal("SELECT COUNT(*) FROM Books");
+    if (qtotal.next()) {
+        ui->label_total->setText(qtotal.value(0).toString());
+    }
 }
 
 
