@@ -43,6 +43,7 @@ void books_add::on_buttonBox_accepted()
     Book currentBook(name, author, genre, date, read, list);
     currentBook.print();
     currentBook.add2base();
+    emit acceptSignal();
 }
 
 

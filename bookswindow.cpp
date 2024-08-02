@@ -34,7 +34,7 @@ bookswindow::~bookswindow()
 void bookswindow::on_add_book_clicked()
 {
     books_add* booksAdd = new books_add();
-    connect(booksAdd, &books_add::accepted, this, &bookswindow::updateWindow);
+    connect(booksAdd, &books_add::acceptSignal, this, &bookswindow::updateWindow);
     booksAdd->show();
 }
 
