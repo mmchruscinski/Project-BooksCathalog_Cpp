@@ -1,5 +1,6 @@
 #include "books_add.h"
 #include "ui_books_add.h"
+#include <QCompleter>
 
 books_add::books_add(QWidget *parent)
     : QDialog(parent)
@@ -12,18 +13,26 @@ books_add::books_add(QWidget *parent)
         ui->combo_listen->addItem(QString::number(i));
     }
 
+    //definicja kompletera
+    QSqlQueryModel *modelAuthors = new QSqlQueryModel();
+    modelAuthors->setQuery(
+        "SELECT Author\
+        FROM Authors"
+        );
+    QCompleter *completer = new QCompleter(modelAuthors, ui->text_author);
+    completer->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->text_author->setCompleter(completer);
+
     QSqlQueryModel* modelCats  = new QSqlQueryModel();
     modelCats->setQuery(
         "SELECT Cathegory\
         FROM Cathegories"
-    );
+        );
 
     for (int i=0; i<modelCats->rowCount(); i++) {
         QString cat = modelCats->data(modelCats->index(i, 0)).toString();
         ui->combo_cat->addItem(cat);
     }
-
-    //connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &bookswindow::updateWindow);
 }
 
 books_add::~books_add()

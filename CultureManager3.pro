@@ -15,6 +15,7 @@ SOURCES += \
     books_add_cat.cpp \
     books_add_genre.cpp \
     bookswindow.cpp \
+    colordelegate.cpp \
     concertswindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     books_add_cat.h \
     books_add_genre.h \
     bookswindow.h \
+    colordelegate.h \
     concertswindow.h \
     mainwindow.h \
     museumswindow.h \

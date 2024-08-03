@@ -5,6 +5,7 @@
 #include "books_add_cat.h"
 #include "books_add_aut.h"
 #include "book.h"
+#include "colordelegate.h"
 
 #include <QMessageBox>
 
@@ -87,6 +88,8 @@ void bookswindow::setTable()
     ui->tableView->setColumnWidth(5, 55);
     ui->tableView->setColumnWidth(6, 55);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    colordelegate *delegate = new colordelegate(ui->tableView);
+    ui->tableView->setItemDelegate(delegate);
     setStats();
 }
 

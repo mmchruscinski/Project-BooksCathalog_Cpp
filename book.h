@@ -3,7 +3,6 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QMessageBox>
-#include "dialog_author.h"
 #ifndef BOOK_H
 #define BOOK_H
 using namespace std;
