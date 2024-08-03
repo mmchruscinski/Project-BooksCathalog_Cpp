@@ -146,8 +146,8 @@ void bookswindow::on_tableView_clicked(const QModelIndex &index)
 
 void bookswindow::updateWindow()
 {
-    const QString mess = "Hello signal!";
-    QMessageBox::information(this, mess, mess);
+    //const QString mess = "Hello signal!";
+    //QMessageBox::information(this, mess, mess);
     setTable();
 }
 

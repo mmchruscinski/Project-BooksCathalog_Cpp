@@ -9,9 +9,9 @@ void colordelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 
     QColor backgroundColor;
     if (value.toInt() > 0) {
-        backgroundColor = QColor(Qt::darkGreen);
+        backgroundColor = QColor(138, 161, 79);
     } else if (listen.toInt() > 0) {
-        backgroundColor = QColor(Qt::darkYellow);
+        backgroundColor = QColor(222, 208, 138);
     } else {
         backgroundColor = QColor(Qt::white);
     }
