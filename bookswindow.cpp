@@ -98,17 +98,32 @@ void bookswindow::on_add_author_clicked()
 
 void bookswindow::setStats()
 {
-    int total,
-        finished,
-        read,
-        listened,
-        doubled;
+    float itotal = 0, ifinished = 0;
+
     QSqlQuery qtotal("SELECT COUNT(*) FROM Books");
     if (qtotal.next()) {
         ui->label_total->setText(qtotal.value(0).toString());
+        itotal = qtotal.value(0).toInt();
     }
-}
 
+    QSqlQuery qfinished("SELECT COUNT(*) FROM Books WHERE Read_num > 0 OR Listen_num > 0");
+    if (qfinished.next()) {
+        ui->label_finished->setText(qfinished.value(0).toString());
+        ifinished = qfinished.value(0).toInt();
+    }
+
+    QSqlQuery qread("SELECT COUNT(*) FROM Books WHERE Read_num > 0");
+    if (qread.next()) {
+        ui->label_read->setText(qread.value(0).toString());
+    }
+
+    QSqlQuery qlisten("SELECT COUNT(*) FROM Books WHERE Listen_num > 0");
+    if (qlisten.next()) {
+        ui->label_listened->setText(qlisten.value(0).toString());
+    }
+
+    ui->progressBar->setValue(int((ifinished/itotal)*100));
+}
 
 void bookswindow::on_delete_book_clicked()
 {
@@ -132,3 +147,4 @@ void bookswindow::updateWindow()
     QMessageBox::information(this, mess, mess);
     setTable();
 }
+

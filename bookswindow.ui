@@ -213,57 +213,112 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_3">
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>271</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Detailed stats</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>171</width>
-      <height>20</height>
+      <width>101</width>
+      <height>130</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Books finished:</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Books total:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Books owned:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Books finished:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>- Audiobooks:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>- Classic:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Books total:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
+      <x>170</x>
       <y>10</y>
-      <width>63</width>
-      <height>20</height>
+      <width>57</width>
+      <height>130</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Finished</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_total">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>40</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Total</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_total">
+       <property name="text">
+        <string>Total</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Owned</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_finished">
+       <property name="text">
+        <string>Finished</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_listened">
+       <property name="text">
+        <string>Listened</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_read">
+       <property name="text">
+        <string>Read</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -279,6 +334,24 @@
     <string>UpdateTest</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>1400</x>
+     <y>160</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Statistics</string>
+   </property>
+  </widget>
   <zorder>frame</zorder>
   <zorder>add_book</zorder>
   <zorder>add_author</zorder>
@@ -292,6 +365,7 @@
   <zorder>pushButton</zorder>
   <zorder>frame_3</zorder>
   <zorder>pushButton_2</zorder>
+  <zorder>label_7</zorder>
  </widget>
  <resources/>
  <connections>
