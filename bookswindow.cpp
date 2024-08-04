@@ -39,6 +39,11 @@ void bookswindow::on_add_book_clicked()
     booksAdd->show();
 }
 
+void bookswindow::on_pushButton_clicked()
+{
+    books_add *booksAdd = new books_add(nullptr, 1);
+}
+
 void bookswindow::closeEvent(QCloseEvent* event)
 {
     QSqlDatabase mydb = QSqlDatabase::database("qt_sql_default_connection");
@@ -49,13 +54,11 @@ void bookswindow::closeEvent(QCloseEvent* event)
     qDebug() << "window closed";
 }
 
-
 void bookswindow::on_add_genre_clicked()
 {
     books_add_genre* booksAddGenre = new books_add_genre();
     booksAddGenre->show();
 }
-
 
 void bookswindow::on_add_cat_clicked()
 {

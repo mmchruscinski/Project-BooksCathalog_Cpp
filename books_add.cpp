@@ -35,6 +35,13 @@ books_add::books_add(QWidget *parent)
     }
 }
 
+books_add::books_add(QWidget *parent, int Id)
+    : QDialog(parent)
+    , ui(new Ui::books_add)
+{
+    qDebug() << "overloaded class run";
+}
+
 books_add::~books_add()
 {
     delete ui;

@@ -16,6 +16,7 @@ class books_add : public QDialog
 
 public:
     explicit books_add(QWidget *parent = nullptr);
+    explicit books_add(QWidget *parent, int Id = 0);
     ~books_add();
 
 private slots:
