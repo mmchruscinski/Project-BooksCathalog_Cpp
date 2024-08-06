@@ -2,12 +2,23 @@
 #include "ui_books_add.h"
 #include <QCompleter>
 
-books_add::books_add(QWidget *parent)
+books_add::books_add(QWidget *parent, QString *title)
     : QDialog(parent)
     , ui(new Ui::books_add)
+    , _title(title)
 {
     ui->setupUi(this);
+    setWin();
+    if (_title != nullptr) setEdit();
+}
 
+books_add::~books_add()
+{
+    delete ui;
+}
+
+void books_add::setWin()
+{
     for (int i=0; i<6; i++) {
         ui->combo_read->addItem(QString::number(i));
         ui->combo_listen->addItem(QString::number(i));
@@ -35,20 +46,19 @@ books_add::books_add(QWidget *parent)
     }
 }
 
-books_add::books_add(QWidget *parent, int Id)
-    : QDialog(parent)
-    , ui(new Ui::books_add)
+void books_add::setEdit()
 {
-    qDebug() << "overloaded class run";
-}
+    qDebug() << "Edit mode, id = " << *_title;
 
-books_add::~books_add()
-{
-    delete ui;
 }
 
 void books_add::on_buttonBox_accepted()
 {
+    if (_title != nullptr) {
+        Book virtualBook;
+        virtualBook.del(*_title);
+    }
+
     QString name    = ui->text_name->text();
     QString author  = ui->text_author->text();
     QString date    = ui->text_date->text();

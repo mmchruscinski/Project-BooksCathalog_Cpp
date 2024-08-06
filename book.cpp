@@ -88,13 +88,7 @@ void Book::print() {
 
 void Book::del(const QString title)
 {
-    QMessageBox dialog;
-    dialog.setText("Delete the record '" + title + "'?");
-    dialog.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    dialog.setDefaultButton(QMessageBox::Yes);
-    int res = dialog.exec();
-
-    if (res == QMessageBox::Yes) {
+     {
         QSqlQuery del;
         del.prepare(
             "DELETE\

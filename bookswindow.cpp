@@ -39,9 +39,11 @@ void bookswindow::on_add_book_clicked()
     booksAdd->show();
 }
 
-void bookswindow::on_pushButton_clicked()
+void bookswindow::on_edit_book_clicked()
 {
-    books_add *booksAdd = new books_add(nullptr, 1);
+    books_add *booksAdd = new books_add(nullptr, &selectedTitle);
+    connect(booksAdd, &books_add::acceptSignal, this, &bookswindow::updateWindow);
+    booksAdd->show();
 }
 
 void bookswindow::closeEvent(QCloseEvent* event)
@@ -133,9 +135,16 @@ void bookswindow::setStats()
 
 void bookswindow::on_delete_book_clicked()
 {
-    Book virtualBook;
-    virtualBook.del(selectedTitle);
-    setTable();
+    QMessageBox dialog;
+    dialog.setText("Delete the record '" + selectedTitle + "'?");
+    dialog.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    dialog.setDefaultButton(QMessageBox::Yes);
+    int res = dialog.exec();
+    if (res == QMessageBox::Yes) {
+        Book virtualBook;
+        virtualBook.del(selectedTitle);
+        setTable();
+    }
 }
 
 void bookswindow::on_tableView_clicked(const QModelIndex &index)

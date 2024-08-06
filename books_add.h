@@ -15,8 +15,7 @@ class books_add : public QDialog
     Q_OBJECT
 
 public:
-    explicit books_add(QWidget *parent = nullptr);
-    explicit books_add(QWidget *parent, int Id = 0);
+    explicit books_add(QWidget *parent = nullptr, QString *title = nullptr);
     ~books_add();
 
 private slots:
@@ -24,10 +23,13 @@ private slots:
 
     void on_combo_cat_currentTextChanged(const QString &arg1);
 
-    //void on_books_add_accepted();
-
 private:
     Ui::books_add *ui;
+
+    void setWin();
+    void setEdit();
+
+    QString *_title;
 
 signals:
     void acceptSignal();

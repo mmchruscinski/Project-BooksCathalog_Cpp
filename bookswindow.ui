@@ -136,7 +136,7 @@
     <number>24</number>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="edit_book">
    <property name="geometry">
     <rect>
      <x>1060</x>
@@ -380,7 +380,7 @@
   <zorder>delete_book</zorder>
   <zorder>add_cat</zorder>
   <zorder>progressBar</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>edit_book</zorder>
   <zorder>frame_3</zorder>
   <zorder>label_7</zorder>
   <zorder>label_5</zorder>
