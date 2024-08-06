@@ -23,6 +23,8 @@ public:
         QString date,
         int read,
         int list);
+    Book(const QString title);
+    Book(const int id);
 
     void add2base();
     void print();

@@ -49,7 +49,21 @@ void books_add::setWin()
 void books_add::setEdit()
 {
     qDebug() << "Edit mode, id = " << *_title;
-
+    ui->text_name->setText(*_title);
+    QSqlQueryModel findBook;
+    findBook.setQuery(
+        "SELECT Author, Cathegory, Genre, Date, Read_num, Listen_num\
+        FROM Books INNER JOIN Authors\
+        ON Books.AuthorID = Authors.Id INNER JOIN Genres\
+        ON Books.GenreID = Genres.Id INNER JOIN Cathegories\
+        ON Genres.CathegoryID = Cathegories.Id\
+        WHERE Title = '" + *_title + "'");
+    ui->text_author->setText(findBook.data(findBook.index(0,0)).toString());
+    ui->combo_cat->setCurrentText(findBook.data(findBook.index(0,1)).toString());
+    ui->combo_genre->setCurrentText(findBook.data(findBook.index(0,2)).toString());
+    ui->text_date->setText(findBook.data(findBook.index(0,3)).toString());
+    ui->combo_read->setCurrentText(findBook.data(findBook.index(0,4)).toString());
+    ui->combo_listen->setCurrentText(findBook.data(findBook.index(0,5)).toString());
 }
 
 void books_add::on_buttonBox_accepted()

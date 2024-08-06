@@ -6,6 +6,8 @@ Book::Book(QString name, QString author, QString genre, QString date, int read, 
 
 Book::Book() {}
 
+Book::Book(const QString title) {}
+
 void Book::add2base()
 {
     QString authorId, genreId;
@@ -105,5 +107,3 @@ void Book::del(const QString title)
         }
     }
 }
-
-
