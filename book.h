@@ -9,20 +9,23 @@ using namespace std;
 class Book
 {
 private:
+    int _id;
     QString _name;
-    QString _author;
-    QString _genre;
+    int _author;
+    int _genre;
     QString _date;
     int _read;
     int _list;
+    bool _own;
 public:
     Book();
     Book(QString name,
-        QString author,
-        QString genre,
+        int author,
+        int genre,
         QString date,
         int read,
-        int list);
+        int list,
+        bool own);
     Book(const QString title);
     Book(const int id);
 

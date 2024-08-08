@@ -1,12 +1,33 @@
 #include "book.h"
 
-Book::Book(QString name, QString author, QString genre, QString date, int read, int list) :
-    _name(name), _author(author), _genre(genre), _date(date), _read(read), _list(list) {
-}
+Book::Book(QString name, int author, int genre, QString date, int read, int list, bool own) :
+    _id(0), _name(name), _author(author), _genre(genre), _date(date), _read(read), _list(list), _own(own) {}
 
 Book::Book() {}
 
-Book::Book(const QString title) {}
+Book::Book(const int id) : _id(id)
+{
+    QSqlQuery qBook;
+    qBook.prepare(
+        "SELECT Title, AuthorID, GenreID, Date, Read_num, \
+        FROM Books\
+        WHERE Id = :id"
+        );
+    qBook.bindValue(":id", _id);
+    if (!qBook.exec()) {
+        qDebug() << "Query execution failed: " << qBook.lastError();
+    }
+
+    while (qBook.next()) {
+        _name   =   qBook.value(0).toString();
+        _author =   qBook.value(1).toInt();
+        _genre  =   qBook.value(2).toInt();
+        _date   =   qBook.value(3).toString();
+        _read   =   qBook.value(4).toInt();
+        _list   =   qBook.value(5).toInt();
+        _own    =   qBook.value(6).toBool();
+    }
+}
 
 void Book::add2base()
 {
@@ -80,12 +101,15 @@ void Book::add2base()
 }
 
 void Book::print() {
+    qDebug() << "Book data:";
+    qDebug() << _id;
     qDebug() << _name;
     qDebug() << _author;
     qDebug() << _date;
     qDebug() << _genre;
     qDebug() << _list;
     qDebug() << _read;
+    qDebug() << _own;
 }
 
 void Book::del(const QString title)
