@@ -148,8 +148,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>books_add_aut</receiver>
+   <slot>deleteAuthor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>331</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addAuthor()</slot>
+  <slot>deleteAuthor()</slot>
  </slots>
 </ui>

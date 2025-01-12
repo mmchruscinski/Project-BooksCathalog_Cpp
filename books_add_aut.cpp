@@ -60,3 +60,17 @@ void books_add_aut::addAuthor()
         qDebug() << "Exists!";
     }
 }
+
+void books_add_aut::deleteAuthor()
+{
+
+}
+
+void books_add_aut::on_tableView_clicked(const QModelIndex &index)
+{
+    QModelIndex sortedIndex = proxymodel->index(index.row(), 0);
+    QModelIndex sourceIndex = proxymodel->mapToSource(sortedIndex);
+    selectedAuthor = sourceIndex.data().toString();
+    qDebug() << selectedAuthor;
+}
+

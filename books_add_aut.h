@@ -18,13 +18,16 @@ public:
 
 public slots:
     void addAuthor();
+    void deleteAuthor();
+
+private slots:
+    void on_tableView_clicked(const QModelIndex &index);
 
 private:
     Ui::books_add_aut *ui;
-
+    QString selectedAuthor;
     QSqlQueryModel *modelAuthors = new QSqlQueryModel;
     QSortFilterProxyModel *proxymodel = new QSortFilterProxyModel;
-    QString selectedAuthor;
 
     void setTable();
 };

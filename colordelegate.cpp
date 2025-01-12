@@ -7,6 +7,8 @@ void colordelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
     QVariant value = index.sibling(index.row(), 5).data();
     QVariant listen = index.sibling(index.row(), 6).data();
 
+    QStyledItemDelegate::paint(painter, option, index);
+
     QColor backgroundColor;
     if (value.toInt() > 0) {
         backgroundColor = QColor(138, 161, 79);
@@ -17,6 +19,10 @@ void colordelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
     }
 
     painter->fillRect(option.rect, backgroundColor);
-    QStyledItemDelegate::paint(painter, option, index);
+    painter->setPen(Qt::black);
+
+    // tu dopisać kod do dobrego ustawiania tekstu horyzontalnie
+
+    painter->drawText(option.rect, Qt::AlignCenter, index.data().toString());
 }
 
